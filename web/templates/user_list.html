@@ -1,15 +1,15 @@
 {% extends "base_AdminLTE.html"%}
 {% block title %}Docklet | UserList{% endblock %}
 
-{% block panel_title %}UserList{% endblock %}
+{% block panel_title %}用户列表{% endblock %}
 
 {% block panel_list %}
 <ol class="breadcrumb">
   <li>
-      <a href="/dashboard/"><i class="fa fa-dashboard"></i>Home</a>
+      <a href="/dashboard/"><i class="fa fa-dashboard"></i>首页</a>
   </li>
   <li class="active">
-      <strong>UserList</strong>
+      <strong>用户列表</strong>
   </li>
 </ol>
 {% endblock %}
@@ -29,7 +29,7 @@
   <div class="col-md-12">
       <div class="box box-info">
            <div class="box-header with-border">
-             <h3 class="box-title">User List</h3>
+             <h3 class="box-title">用户列表</h3>
 
              <div class="box-tools pull-right">
                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -38,35 +38,35 @@
              </div>
            </div>
            <div class="box-body">
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddUserModal"><i class="fa fa-plus"></i> Add User</button>
-	<div class="modal inmodal" id="AddUserModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddUserModal"><i class="fa fa-plus"></i> 添加用户</button>
+  <div class="modal inmodal" id="AddUserModal" tabindex="-1" role="dialog" aria-hidden="true">
              <div class="modal-dialog">
              <div class="modal-content animated fadeIn">
                      <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
                          <i class="fa fa-laptop modal-icon"></i>
-                         <h4 class="modal-title">Add User</h4>
-                         <small class="font-bold">Add a user in Docklet</small>
+                         <h4 class="modal-title">添加用户</h4>
+                         <small class="font-bold">添加一个用户到燕雀</small>
                      </div>
                      <div class="modal-body">
                        <form action="/user/add/" method="POST" id="addUserForm">
                           <div class="form-group">
-                            <label>User Name</label>
+                            <label>用户名</label>
                             <input type = "text" placeholder="Enter Username" class="form-control" name="username">
                           </div>
                           <div class="form-group">
-                            <label>PASSWORD</label>
+                            <label>密码</label>
                             <input type = "password" placeholder="Enter Password" class="form-control" name="password">
                           </div>
                           <div class="form-group">
-                            <label>E-mail</label>
+                            <label>邮箱</label>
                             <input type="email" placeholder="Enter E-mail Address" class="form-control" name="e_mail">
                           </div>
                         </form>
                      </div>
                      <div class="modal-footer">
-                         <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                         <button type="button" class="btn btn-primary" onClick="javascript:sendAddUser();">Submit</button>
+                         <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                         <button type="button" class="btn btn-primary" onClick="javascript:sendAddUser();">确认</button>
                      </div>
              </div>
              </div>
@@ -76,15 +76,15 @@
                  <thead>
                      <tr>
                          <th>ID</th>
-                         <th>User</th>
-                         <th>Name</th>
-                         <th>E_mail</th>
-                         <th>Tel</th>
-                         <th>RegisterDate</th>
-                         <th>Status</th>
-                         <th>Group</th>
-                         <th>Beans</th>
-                         <th>Command</th>
+                         <th>用户</th>
+                         <th>名称</th>
+                         <th>邮箱</th>
+                         <th>电话</th>
+                         <th>注册日期</th>
+                         <th>状态</th>
+                         <th>组</th>
+                         <th>积分</th>
+                         <th>控制</th>
                      </tr>
                  </thead>
                  <tbody>
@@ -95,17 +95,17 @@
                              <div class="modal-header">
                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                  <i class="fa fa-laptop modal-icon"></i>
-                                 <h4 class="modal-title">Modify User</h4>
-                                 <small class="font-bold">Modify a user in Docklet</small>
+                                 <h4 class="modal-title">修改用户</h4>
+                                 <small class="font-bold">修改燕雀中用户信息</small>
                              </div>
                              <div class="modal-body">
                                <form action="/user/modify/" method="POST" id="modifyUserForm">
                                   <div class="form-group">
-                                    <label>User Name</label>
+                                    <label>用户名</label>
                                     <input type = "text" placeholder="Enter Username" class="form-control" name="username" id="mUsername" readonly="readonly">
                                   </div>
                                   <div class="form-group">
-                                    <label>Status</label>
+                                    <label>状态</label>
                                     <select class="form-control" name="status" id="mStatus">
                                           <option>normal</option>
                                           <option>applying</option>
@@ -114,23 +114,23 @@
                                     </select>
                                   </div>
                                   <div class="form-group">
-                                    <label>True Name</label>
+                                    <label>真实姓名</label>
                                     <input type = "text" placeholder="Enter Truename" class="form-control" name="truename" id="mTruename">
                                   </div>
                                   <div class="form-group">
-                                    <label>E-mail</label>
+                                    <label>邮箱</label>
                                     <input type="email" placeholder="Enter E-mail Address" class="form-control" name="e_mail" id="mE_mail">
                                   </div>
                                   <div class="form-group">
-                                    <label>Department</label>
+                                    <label>部门</label>
                                     <input type = "text" placeholder="Enter Department" class="form-control" name="department" id="mDepartment">
                                   </div>
                                   <div class="form-group">
-                                    <label>Student Number</label>
+                                    <label>学号</label>
                                     <input type = "text" placeholder="Enter Student Number" class="form-control" name="student_number" id="mStudentNumber">
                                   </div>
                                   <div class="form-group">
-                                    <label>Telephone Number</label>
+                                    <label>电话号码</label>
                                     <input type = "text" placeholder="Enter Telephone Number" class="form-control" name="tel" id="mTel">
                                   </div>
 
@@ -140,7 +140,7 @@
                                   </div-->
 
                                   <div class="form-group">
-                                    <label>User Group</label>
+                                    <label>用户组</label>
                                     <select class="form-control" name="group" id="mUserGroup">
                                         {% for group in groups %}
                                           <option>{{ group }}</option>
@@ -148,7 +148,7 @@
                                     </select>
                                   </div>
                                   <div class="form-group">
-                                    <label>Auth Method</label>
+                                    <label>权限方法</label>
                                     <select class="form-control" name="auth_method" id="mAuthMethod">
                                           <option>local</option>
                                           <option>pam</option>
@@ -157,7 +157,7 @@
                                   </div>
 
                                   <div class="form-group">
-                                    <label>Description</label>
+                                    <label>描述</label>
                                     <textarea class="form-control" name="description" id="mDescription" readonly="readonly">
 
                                     </textarea>
@@ -165,9 +165,9 @@
                                 </form>
                        </div>
                        <div class="modal-footer">
-                           <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                           <a class="btn btn-danger" data-toggle="modal" data-target="#ChpasswordModal" onClick="" id="ChpasswordButton">Change Password</a>
-                           <button type="button" class="btn btn-primary" onClick="javascript:sendModifyUser();">Submit</button>
+                           <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                           <a class="btn btn-danger" data-toggle="modal" data-target="#ChpasswordModal" onClick="" id="ChpasswordButton">修改密码</a>
+                           <button type="button" class="btn btn-primary" onClick="javascript:sendModifyUser();">提交</button>
                        </div>
                      </div>
                      </div>
@@ -218,7 +218,7 @@
 <div class="col-md-12">
 <div class="box box-info">
     <div class="box-header with-border">
-       <h3 class="box-title">Processing Beans Applications</h3>
+       <h3 class="box-title">处理积分应用</h3>
        <div class="box-tools pull-right">
          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
          </button>
@@ -229,15 +229,15 @@
                    <div class="table table-responsive">
                      <table class="table table-striped table-bordered table-hover table-image" >
                         <thead>
-                    	<tr>
-                        <th>Application ID</th>
-                        <th>Username</th>
-                        <th>Number</th>
-                        <th>Submission Time</th>
-                        <th>Reason</th>
-                        <th>Command</th>
-                    	</tr>
-                    	</thead>
+                      <tr>
+                        <th>应用ID</th>
+                        <th>用户名</th>
+                        <th>编号</th>
+                        <th>提交时间</th>
+                        <th>原因</th>
+                        <th>操作</th>
+                      </tr>
+                      </thead>
                     <tbody>
                       {% for application in applications %}
                       <tr>
@@ -246,14 +246,14 @@
                       <td>{{ application.number }} beans</td>
                       <td>{{ application.time }}</td>
                       <td>{{ application.reason }}</td>
-                      <td><a class="btn btn-xs btn-info" href="/beans/admin/{{ application.username }}/{{ application.id }}/agree/">Agree</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                          <a class="btn btn-xs btn-danger" href="/beans/admin/{{ application.username }}/{{ application.id }}/reject/">Reject</a></td>
+                      <td><a class="btn btn-xs btn-info" href="/beans/admin/{{ application.id }}/agree/">同意</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                          <a class="btn btn-xs btn-danger" href="/beans/admin/{{ application.id }}/reject/">拒绝</a></td>
                       </tr>
                       {% endfor %}
                     </tbody>
-		  </table>
+      </table>
                 </div>
-	  </div>
+    </div>
         </div>
 </div>
 </div>
@@ -305,7 +305,7 @@
       });
     });
     function sendAddUser(){
-		    document.getElementById("addUserForm").submit();
+        document.getElementById("addUserForm").submit();
     }
     function sendAddGroup(){
         document.getElementById("addGroupForm").submit();

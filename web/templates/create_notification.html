@@ -1,18 +1,18 @@
 {% extends "base_AdminLTE.html" %}
 {% block title %}Docklet | Create Notification{% endblock %}
 
-{% block panel_title %}Add New Notifications{% endblock %}
+{% block panel_title %}添加新通知{% endblock %}
 
 {% block panel_list %}
 <ol class="breadcrumb">
     <li>
-        <a href="/dashboard/"><i class="fa fa-dashboard"></i>Home</a>
+        <a href="/dashboard/"><i class="fa fa-dashboard"></i>首页</a>
     </li>
     <li>
-        <a href="/notification/"><i class="fa fa-envelope"></i>Notifications</a>
+        <a href="/notification/"><i class="fa fa-envelope"></i>通知</a>
     </li>
     <li class="active">
-        <strong>Add New Notifications</strong>
+        <strong>添加新通知</strong>
     </li>
 </ol>
 {% endblock %}
@@ -23,7 +23,7 @@
     <div class="col-lg-12">
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Add New Notifications</h3>
+                <h3 class="box-title">添加新通知</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -38,37 +38,37 @@
             <div class="box-body">
                 <form id="notificationForm" class="form-horizontal" action="/notification/create/" method="post">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Title</label>
+                        <label class="col-sm-2 control-label">标题</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="title" id="title">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Content</label>
+                        <label class="col-sm-2 control-label">内容</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" name="content" id="title"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Groups</label>
+                        <label class="col-sm-2 control-label">组</label>
                         <div class="checkbox col-sm-10">
                             <label style="display: none"><input type="checkbox" checked name="groups" value="none" style="display: none"></label>
-                            <label><input type="checkbox" name="groups" value="all">all&nbsp;&nbsp;</label>
+                            <label><input type="checkbox" name="groups" value="all">所有&nbsp;&nbsp;</label>
                             {% for group_name in groups %}
                             <label><input type="checkbox" name="groups" value="{{ group_name }}">{{ group_name }}&nbsp;&nbsp;</label>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Also send email</label>
+                        <label class="col-sm-2 control-label">同时发送邮件</label>
                         <div class="col-sm-10">
                             <input type="checkbox" name="sendMail" value="true">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-2">
-						    <button class="btn btn-primary" type="submit">Create</button>
-					    </div>
+                            <button class="btn btn-primary" type="submit">创建</button>
+                        </div>
                     </div>
                 </form>
             </div>

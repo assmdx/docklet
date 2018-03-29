@@ -16,8 +16,8 @@
 {% endblock %}
 
 {% block content %}
-	  <div class="row">
-	     <div class="col-md-12">
+    <div class="row">
+       <div class="col-md-12">
          <div class="box box-info">
               <div class="box-header with-border">
                 <h3 class="box-title">Cluster Name: {{ clustername }}</h3>
@@ -29,21 +29,21 @@
                 </div>
               </div>
                      <div class="box-body">
-			<p>
-			<a href="/cluster/scaleout/{{ clustername }}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>Add Container</button></a>
-			</p>
+      <p>
+      <a href="/cluster/scaleout/{{ clustername }}"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>Add Container</button></a>
+      </p>
                          <table class="table table-bordered">
                              <thead>
                              <tr>
-				 <th>Node ID</th>
-				 <th>Node Name</th>
+         <th>Node ID</th>
+         <th>Node Name</th>
                                  <th>IP Address</th>
                                  <th>Status</th>
-				 <th>Last Save</th>
-				 <th>Image</th>
-				 <th>Detail</th>
-				 <th>Flush</th>
-				 <th>Save</th>
+         <th>Last Save</th>
+         <th>Image</th>
+         <th>Detail</th>
+         <th>Flush</th>
+         <th>Save</th>
                              </tr>
                              </thead>
                              <tbody>
@@ -59,12 +59,12 @@
                                  <td><div class="label label-primary">Running</div></td>
                                  {% endif %}
 
-				 <td>{{ container['lastsave'] }}</td>
-				 <td>{{ container['image'] }}</td>
+         <td>{{ container['lastsave'] }}</td>
+         <td>{{ container['image'] }}</td>
                                  <td><a class="btn btn-info" href='/monitor/Node/{{ container['containername'] }}/detail/'>Detail</a></td>
-				 <td><a class="btn btn-warning" href="/cluster/flush/{{ clustername }}/{{ container['containername'] }}/">Flush</a></td>
-				 <td><button type="button" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#DelModal_{{ container['containername'] }}"> save</button></td>
-				<div class="modal inmodal" id="DelModal_{{ container['containername'] }}" tabindex="-1" role="dialog" aria-hidden="true">
+         <td><a class="btn btn-warning" href="/cluster/flush/{{ clustername }}/{{ container['containername'] }}/">Flush</a></td>
+         <td><button type="button" class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#DelModal_{{ container['containername'] }}"> save</button></td>
+        <div class="modal inmodal" id="DelModal_{{ container['containername'] }}" tabindex="-1" role="dialog" aria-hidden="true">
                                    <div class="modal-dialog">
                                    <div class="modal-content animated fadeIn">
                                            <div class="modal-header">
@@ -77,10 +77,10 @@
                                                 <div class="form-group">
                                                   <form action="/cluster/save/{{ clustername }}/{{ container['containername'] }}/" method="GET" id="saveImage">
                                                   <label>Image Name</label>
-						  <input type="text" placeholder="Enter image name" class="form-control" name="ImageName" id="ImageName"/>
-                                           	  <div class="modal-footer">
-                                               		<button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                               		<button type="submit" class="btn btn-success">Save</button>
+              <input type="text" placeholder="Enter image name" class="form-control" name="ImageName" id="ImageName"/>
+                                              <div class="modal-footer">
+                                                  <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-success">Save</button>
                                                   </div>
                                                   </form>
                                                 </div>
@@ -90,13 +90,13 @@
                                </div>
                                </div>
 
-			     </tr>
+           </tr>
                              {% endfor %}
                              </tbody>
                          </table>
                      </div>
                  </div>
              </div>
-	   </div>
+     </div>
 
 {% endblock %}

@@ -6,10 +6,10 @@
 {% block panel_list %}
 <ol class="breadcrumb">
   <li>
-      <a href="/dashboard/"><i class="fa fa-dashboard"></i>Home</a>
+      <a href="/dashboard/"><i class="fa fa-dashboard"></i>首页</a>
   </li>
   <li class="active">
-      <strong>Settings</strong>
+      <strong>设置</strong>
   </li>
 </ol>
 {% endblock %}
@@ -28,7 +28,7 @@
  <div class="col-md-12">
      <div class="box box-info">
          <div class="box-header with-border">
-             <h3 class="box-title">Quota</h3>
+             <h3 class="box-title">配额</h3>
 
              <div class="box-tools pull-right">
                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -38,15 +38,15 @@
              </div>
          </div>
          <div class="box-body">
-             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddGroupModal"><i class="fa fa-plus"></i> Add Quota Group</button>
+             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddGroupModal"><i class="fa fa-plus"></i> 添加配额组</button>
            <div class="modal inmodal" id="AddGroupModal" tabindex="-1" role="dialog" aria-hidden="true">
                <div class="modal-dialog">
                <div class="modal-content animated fadeIn">
                        <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
                            <i class="fa fa-laptop modal-icon"></i>
-                           <h4 class="modal-title">Add Group</h4>
-                           <small class="font-bold">Add a group to Docklet</small>
+                           <h4 class="modal-title">添加组</h4>
+                           <small class="font-bold">添加一个组到燕雀</small>
                        </div>
                        <div class="modal-body">
 
@@ -58,9 +58,6 @@
                                 {% for quota in quotas %}
                                 <div class="form-group">
                                     <label>{{ quota['name'] }}</label>
-                                    {% if quota['name'] == 'vnode' %}
-                                    <small class="font-bold"> Only 2^n - 3 is legal. Any other value will be reset to the nearest 2^n - 3.</small>
-                                    {% endif %}
                                     <input type="text" class="form-control" name={{ quota['name'] }} placeholder="{{quota['hint']}}" />
                                 </div>
                                 {% endfor %}
@@ -68,21 +65,21 @@
 
                        </div>
                        <div class="modal-footer">
-                           <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-primary" onClick="javascript:sendAddGroup();">Submit</button>
+                           <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                           <button type="button" class="btn btn-primary" onClick="javascript:sendAddGroup();">提交</button>
                        </div>
                    </div>
                </div>
            </div>
-             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddQuotaModal"><i class="fa fa-plus"></i> Add Quota</button>
+             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#AddQuotaModal"><i class="fa fa-plus"></i> 添加配额</button>
            <div class="modal inmodal" id="AddQuotaModal" tabindex="-1" role="dialog" aria-hidden="true">
                <div class="modal-dialog">
                <div class="modal-content animated fadeIn">
                        <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
                            <i class="fa fa-laptop modal-icon"></i>
-                           <h4 class="modal-title">Add Quota</h4>
-                           <small class="font-bold">Add a quota to Docklet</small>
+                           <h4 class="modal-title">添加配额</h4>
+                           <small class="font-bold">添加一个配额到燕雀</small>
                        </div>
                        <div class="modal-body">
 
@@ -103,21 +100,21 @@
 
                        </div>
                        <div class="modal-footer">
-                           <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-primary" onClick="javascript:sendAddQuota();">Submit</button>
+                           <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                           <button type="button" class="btn btn-primary" onClick="javascript:sendAddQuota();">提交</button>
                        </div>
                    </div>
                </div>
            </div>
-             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ChangeDefaultModal"><i class="fa fa-plus"></i> Change Default</button>
+             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ChangeDefaultModal"><i class="fa fa-plus"></i> 修改默认</button>
            <div class="modal inmodal" id="ChangeDefaultModal" tabindex="-1" role="dialog" aria-hidden="true">
                <div class="modal-dialog">
                <div class="modal-content animated fadeIn">
                        <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
                            <i class="fa fa-laptop modal-icon"></i>
-                           <h4 class="modal-title">Change Default</h4>
-                           <small class="font-bold">Change Default Quota Group</small>
+                           <h4 class="modal-title">修改默认</h4>
+                           <small class="font-bold">修改默认配额组</small>
                        </div>
                        <div class="modal-body">
                             <form action="/quota/chdefault/" method="POST" id="chDefaultForm">
@@ -132,8 +129,8 @@
                             </form>
                        </div>
                        <div class="modal-footer">
-                           <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-primary" onClick="javascript:sendChDefault();">Submit</button>
+                           <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                           <button type="button" class="btn btn-primary" onClick="javascript:sendChDefault();">提交</button>
                        </div>
                    </div>
                </div>
@@ -158,9 +155,9 @@
                     {% endfor %}
                     <th><a class="btn btn-xs btn-info" data-toggle="modal" data-target="#ModifyGroupModal_{{ group['name'] }}">Edit</a>&nbsp;
                     {% if group['name'] in [ "root", "primary", "admin", "foundation" ] %}
-                        <a class="btn btn-xs btn-default" href="javascript:void(0)">Delete</a>&nbsp;
+                        <a class="btn btn-xs btn-default" href="javascript:void(0)">删除</a>&nbsp;
                     {% else %}
-                        <a class="btn btn-xs btn-danger" href="/group/delete/{{group['name']}}">Delete</a>&nbsp;
+                        <a class="btn btn-xs btn-danger" href="/group/delete/{{group['name']}}">删除</a>&nbsp;
                     {% endif %}
                     {% if group['name'] == defaultgroup %}
                         <span class="glyphicon glyphicon-ok"></span>
@@ -170,10 +167,10 @@
                         <div class="modal-dialog">
                         <div class="modal-content animated fadeIn">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
                                     <i class="fa fa-laptop modal-icon"></i>
-                                    <h4 class="modal-title">Modify Group</h4>
-                                    <small class="font-bold">Modify a group in Docklet</small>
+                                    <h4 class="modal-title">修改组</h4>
+                                    <small class="font-bold">修改燕雀内的一个组</small>
                                 </div>
                                 <form action="/group/modify/{{group['name']}}/" method="POST" >
                                     <div class="modal-body">
@@ -184,17 +181,13 @@
                                       {% for quota in quotas %}
                                       <div class="form-group">
                                           <label> {{ quota['name'] }}</label>
-                                          {% if quota['name'] == 'vnode' %}
-                                          <small class="font-bold"> Only 2^n - 3 are legal. Any other value will be reset to the nearest 2^n - 3.</small>
-                                          {% endif %}
                                           <input type="text" placeholder="{{ quota['hint'] }}" class="form-control" name={{ quota['name'] }} value={{ group['quotas'][quota['name']] }} />
                                       </div>
                                       {% endfor %}
-                                      <small class="font-bold"> *: The update of <i>vnode</i>, <i>input_rate_limit</i> and <i>output_rate_limit</i> will take effect when a user deletes all his/her workpsaces.</small>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                        <button type="submit" class="btn btn-primary">提交</button>
                                     </div>
                                 </form>
                         </div>
@@ -211,7 +204,7 @@
     <div class="col-md-12">
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Update Base Image</h3>
+                <h3 class="box-title">更新基础镜像</h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -222,10 +215,10 @@
                     <table id="imageTable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>ImageName</th>
-                                <th>CreateTime</th>
-                                <th>Description</th>
-                                <th>Operation</th>
+                                <th>镜像名称</th>
+                                <th>创建时间</th>
+                                <th>描述</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -234,22 +227,22 @@
                                 <td>{{image['name']}}</td>
                                 <td>{{image['time']}}</td>
                                 <td><a href="/image/description/{{image['name']}}_root_private/" target="_blank">{{image['description']}}</a></td>
-                                <td><button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#Update_{{image['name']}}">Update</button>
+                                <td><button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#Update_{{image['name']}}">更新</button>
                                 <div class="modal inmodal" id="Update_{{image['name']}}" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content animated fadeIn">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
                                                 <i class="fa fa-save modal-icon"></i>
-                                                <h4 class="modal-title">Update Package Image</h4>
-                                                <small class="font-bold">Update Package Image From Chosen Image</small>
+                                                <h4 class="modal-title">更新基本镜像</h4>
+                                                <small class="font-bold">从选定的镜像中更新基本镜像</small>
                                             </div>
                                             <div class="modal-body">
-                                                <strong>Warning: This operation will update the package image. Maybe it will cause some error and then the package image will be destroyed. Please make sure you have the backup of package image.</strong>
+                                                <strong>警告：该操作会更新基本镜像。可能会导致一些错误并且镜像会被销毁，请确保已备份好镜像。</strong>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                                <a href="/image/0.0.0.0/updatebase/{{image['name']}}/"><button type="button" class="btn btn-success">Update</button></a>
+                                                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                                <a href="/image/updatebase/{{image['name']}}/"><button type="button" class="btn btn-success">更新</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +258,7 @@
  <div class="col-md-12">
      <div class="box box-info">
          <div class="box-header with-border">
-             <h3 class="box-title">Container Default Setting</h3>
+             <h3 class="box-title">容器默认设置</h3>
 
              <div class="box-tools pull-right">
                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -281,15 +274,15 @@
                      <div class="col-sm-8"><input type="number" class="form-control" name="lxcCpu" id="lxcCpu" value={{lxcsetting['cpu']}} />CORE</div>
                  </div>
                  <div class="form-group">
-                     <label class="control-label col-sm-2">MEMORY</label>
+                     <label class="control-label col-sm-2">内存</label>
                      <div class="col-sm-8"><input type="number" class="form-control" name="lxcMemory" id="lxcMemory" value={{lxcsetting['memory']}} />MB</div>
                  </div>
                  <div class="form-group">
-                     <label class="control-label col-sm-2">DISK</label>
+                     <label class="control-label col-sm-2">硬盘</label>
                      <div class="col-sm-8"><input type="number" class="form-control" name="lxcDisk" id="lxcDisk" value={{lxcsetting['disk']}} />MB</div>
                  </div>
                  <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-2"><button class="btn btn-primary" type="submit">Modify</button></div>
+                    <div class="col-sm-4 col-sm-offset-2"><button class="btn btn-primary" type="submit">修改</button></div>
                  </div>
              </form>
          </div>
@@ -301,38 +294,38 @@
   <div class="col-md-12">
       <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Modify Settings</h3>
+            <h3 class="box-title">修改设置</h3>
           </div>
           <div class="box-body">
           <form role="form" action="/settings/update/" method="POST" >
             <div class="box-body">
               <div class="form-group">
-                <label for="ADMIN_EMAIL_ADDRESS">Admin Email Address</label>
-                <p class="help-block">when an activating request is sent, an e-mail will be sent to this address to remind the admin. </p>
-                <p class="help-block">if this address is "", no email will be sent to admin.</p>
+                <label for="ADMIN_EMAIL_ADDRESS">管理员邮箱地址</label>
+                <p class="help-block">当发送一个激活请求时，将发送一封电子邮件到此地址以提醒管理员。 </p>
+                <p class="help-block">如果这个地址是空，就不会发送邮件给管理员了.</p>
                 <input type="input" class="form-control" id="ADMIN_EMAIL_ADDRESS" value="{{ settings['ADMIN_EMAIL_ADDRESS'] }}" name="ADMIN_EMAIL_ADDRESS">
               </div>
               <div class="form-group">
-                <label for="EMAIL_FROM_ADDRESS">Email From Address</label>
-                <p class="help-block">the e-mail address to send activating e-mail to user</p>
-                <p class="help-block">if this address is "", no email will be sent out.</p>
+                <label for="EMAIL_FROM_ADDRESS">发件人邮箱</label>
+                <p class="help-block">给用户发送激活邮件的地址</p>
+                <p class="help-block">如果地址为空，不会发送邮件。</p>
                 <input type="input" class="form-control" id="EMAIL_FROM_ADDRESS" name="EMAIL_FROM_ADDRESS" value="{{ settings['EMAIL_FROM_ADDRESS'] }}">
               </div>
               <div class="form-group">
-                <label for="OPEN_REGISTRY">OPEN_REGISTRY</label>
-                <p class="help-block">whether allow user to register a new account</p>
-                <p class="help-block">if the value is True, it will allow.</p>
+                <label for="OPEN_REGISTRY">开放注册</label>
+                <p class="help-block">是否允许用户注册一个新账户</p>
+                <p class="help-block">如果值为真，它将允许。</p>
                 <input type="input" class="form-control" id="OPEN_REGISTRY" name="OPEN_REGISTRY" value="{{ settings['OPEN_REGISTRY'] }}">
               </div>
               <div class="form-group">
-                <label for="APPROVAL_RBT">APPROVAL_RBT</label>
-                <p class="help-block">whether to start the approval robot that will approve beans applications from users automatically</p>
-                <p class="help-block">if the value is True, it will allow.</p>
+                <label for="APPROVAL_RBT">审批机器人</label>
+                <p class="help-block">是否要启动审批机器人，它会自动批准来自用户的bean应用程序</p>
+                <p class="help-block">如果值为真，它将允许。</p>
                 <input type="input" class="form-control" id="APPROVAL_RBT" name="APPROVAL_RBT"  value="{{ settings['APPROVAL_RBT'] }}">
               </div>
             </div>
             <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">提交</button>
             </div>
           </form>
         </div>
@@ -346,9 +339,9 @@
  <div class="box box-info collapsed-box">
       <div class="box-header with-border">
             {% if field == "docklet" %}
-             <h3 class="box-title">Docklet Config</h3>
+             <h3 class="box-title">燕雀配置</h3>
              {% else %}
-             <h3 class="box-title">Container Config</h3>
+             <h3 class="box-title">容器配置</h3>
              {% endif %}
              <div class="box-tools pull-right">
                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -554,7 +547,7 @@
  <div class="col-md-12">
  <div class="box box-info collapsed-box">
       <div class="box-header with-border">
-             <h3 class="box-title">Container Config</h3>
+             <h3 class="box-title">容器配置</h3>
              <div class="box-tools pull-right">
                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                  </button>
